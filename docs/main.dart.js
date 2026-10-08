@@ -56420,7 +56420,7 @@ return new A.rb(new A.tm(new A.p3(B.Kk,new A.GM(s,s,1/0,56),s),A.Lh(A.ah7(A.d([B
 A.SU.prototype={
 $0(){var s=0,r=A.R(t.H),q
 var $async$$0=A.S(function(a,b){if(a===1)return A.O(b,r)
-for(;;)switch(s){case 0:q=A.eI("https://www.instagram.com/gospelsongs0/",0,null)
+for(;;)switch(s){case 0:q=A.eI("https://www.instagram.com/it_shnik_2005/",0,null)
 s=4
 return A.U(A.a7d(q),$async$$0)
 case 4:s=b?2:3

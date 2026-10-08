@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
               ElevatedButton(
                 onPressed: () async {
                   final url = Uri.parse(
-                    'https://www.instagram.com/gospelsongs0/',
+                    'https://www.instagram.com/it_shnik_2005/',
                   );
 
                   if (await canLaunchUrl(url)) {

@@ -1,4 +1,4 @@
-require('dotenv').config();
+﻿require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
   });
 });
 
-// Գրանցում
+// ФіЦЂХЎХ¶ЦЃХёЦ‚Хґ
 app.post('/register', (req, res) => {
   const { name, email, password } = req.body;
 
@@ -32,7 +32,7 @@ app.post('/register', (req, res) => {
   ) {
     return res.status(400).json({
       success: false,
-      message: 'Լրացրու բոլոր դաշտերը։',
+      message: 'ФјЦЂХЎЦЃЦЂХёЦ‚ ХўХёХ¬ХёЦЂ Х¤ХЎХ·ХїХҐЦЂХЁЦ‰',
     });
   }
 
@@ -54,7 +54,7 @@ app.post('/register', (req, res) => {
   });
 });
 
-// Մուտք
+// Х„ХёЦ‚ХїЦ„
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
 
@@ -66,7 +66,7 @@ app.post('/login', (req, res) => {
   ) {
     return res.status(400).json({
       success: false,
-      message: 'Լրացրու էլ․ փոստն ու գաղտնաբառը։',
+      message: 'ФјЦЂХЎЦЃЦЂХёЦ‚ Х§Х¬вЂ¤ ЦѓХёХЅХїХ¶ ХёЦ‚ ХЈХЎХІХїХ¶ХЎХўХЎХјХЁЦ‰',
     });
   }
 
@@ -87,14 +87,14 @@ app.post('/login', (req, res) => {
   });
 });
 
-// Զրույցի պատմություն
+// Ф¶ЦЂХёЦ‚ХµЦЃХ« ХєХЎХїХґХёЦ‚Х©ХµХёЦ‚Х¶
 app.get('/history/:userId', (req, res) => {
   const userId = Number(req.params.userId);
 
   if (!Number.isSafeInteger(userId) || userId < 1) {
     return res.status(400).json({
       success: false,
-      message: 'Օգտատիրոջ ID-ն սխալ է։',
+      message: 'Х•ХЈХїХЎХїХ«ЦЂХёХ» ID-Х¶ ХЅХ­ХЎХ¬ Х§Ц‰',
     });
   }
 
@@ -104,7 +104,7 @@ app.get('/history/:userId', (req, res) => {
   });
 });
 
- // AI պատասխանի մաքրում
+ // AI ХєХЎХїХЎХЅХ­ХЎХ¶Х« ХґХЎЦ„ЦЂХёЦ‚Хґ
 function cleanReply(text) {
   let reply = String(text || '').trim();
 
@@ -118,7 +118,7 @@ function cleanReply(text) {
   return reply.trim();
 }
 
-// Զրույց Niko AI-ի հետ
+// Ф¶ЦЂХёЦ‚ХµЦЃ Niko AI-Х« Х°ХҐХї
 app.post('/chat', async (req, res) => {
   console.log('NIKO CHAT ROUTE REACHED');
 
@@ -127,7 +127,6 @@ app.post('/chat', async (req, res) => {
 
 console.log('USER MESSAGE JSON:', JSON.stringify(message));
 
-console.log('SYSTEM INSTRUCTION:', systemInstruction);
 
   if (
     !Number.isSafeInteger(Number(userId)) ||
@@ -137,7 +136,7 @@ console.log('SYSTEM INSTRUCTION:', systemInstruction);
   ) {
     return res.status(400).json({
       success: false,
-      message: 'Գրիր հաղորդագրություն և ճիշտ օգտատիրոջ ID։',
+      message: 'ФіЦЂХ«ЦЂ Х°ХЎХІХёЦЂХ¤ХЎХЈЦЂХёЦ‚Х©ХµХёЦ‚Х¶ Ц‡ ХіХ«Х·Хї Ц…ХЈХїХЎХїХ«ЦЂХёХ» IDЦ‰',
     });
   }
 
@@ -145,14 +144,14 @@ console.log('SYSTEM INSTRUCTION:', systemInstruction);
   const userMessage = message.trim();
 const normalizedMessage = userMessage
   .toLowerCase()
-  .replace(/[։.!՞?՝,\s]+/g, '');
+  .replace(/[Ц‰.!Хћ?Хќ,\s]+/g, '');
 
 
-if (['բարև', 'բարեւ', 'բարիօր'].includes(normalizedMessage)) {
+if (['ХўХЎЦЂЦ‡', 'ХўХЎЦЂХҐЦ‚', 'ХўХЎЦЂХ«Ц…ЦЂ'].includes(normalizedMessage)) {
   console.log('GREETING MATCHED:', normalizedMessage);
   return res.json({
     success: true,
-    reply: 'Բարի օր։ Ինչո՞վ կարող եմ օգնել ձեզ։',
+    reply: 'ФІХЎЦЂХ« Ц…ЦЂЦ‰ Ф»Х¶Х№ХёХћХѕ ХЇХЎЦЂХёХІ ХҐХґ Ц…ХЈХ¶ХҐХ¬ Х±ХҐХ¦Ц‰',
   });
 }
   console.log('USER MESSAGE:', userMessage);
@@ -160,7 +159,7 @@ if (['բարև', 'բարեւ', 'բարիօր'].includes(normalizedMessage)) {
   if (userMessage.length > 10000) {
     return res.status(400).json({
       success: false,
-      message: 'Հաղորդագրությունը չափազանց երկար է։',
+      message: 'ХЂХЎХІХёЦЂХ¤ХЎХЈЦЂХёЦ‚Х©ХµХёЦ‚Х¶ХЁ Х№ХЎЦѓХЎХ¦ХЎХ¶ЦЃ ХҐЦЂХЇХЎЦЂ Х§Ц‰',
     });
   }
 
@@ -197,9 +196,9 @@ If the user writes in English, reply in natural English using Latin script only.
 
 For a simple greeting:
 
-Armenian: "Բարի օր։ Ինչո՞վ կարող եմ օգնել ձեզ։"
+Armenian: "ФІХЎЦЂХ« Ц…ЦЂЦ‰ Ф»Х¶Х№ХёХћХѕ ХЇХЎЦЂХёХІ ХҐХґ Ц…ХЈХ¶ХҐХ¬ Х±ХҐХ¦Ц‰"
 
-Russian: "Здравствуйте! Чем я могу вам помочь?"
+Russian: "Р—РґСЂР°РІСЃС‚РІСѓР№С‚Рµ! Р§РµРј СЏ РјРѕРіСѓ РІР°Рј РїРѕРјРѕС‡СЊ?"
 
 English: "Hello! How can I help you?"
 
@@ -244,7 +243,7 @@ Never mix languages. Never use Spanish. Never produce meaningless words. Answer 
 
       return res.status(502).json({
         success: false,
-        message: 'Տեղական AI մոդելը հասանելի չէ։',
+        message: 'ХЏХҐХІХЎХЇХЎХ¶ AI ХґХёХ¤ХҐХ¬ХЁ Х°ХЎХЅХЎХ¶ХҐХ¬Х« Х№Х§Ц‰',
       });
     }
 
@@ -257,7 +256,7 @@ Never mix languages. Never use Spanish. Never produce meaningless words. Answer 
 
     let reply = cleanReply(data.message?.content || '');
 
-    const sentences = reply.match(/[^.!?։՞]+[.!?։՞]?/g) || [];
+    const sentences = reply.match(/[^.!?Ц‰Хћ]+[.!?Ц‰Хћ]?/g) || [];
     const uniqueSentences = [];
     const seen = new Set();
 
@@ -265,7 +264,7 @@ Never mix languages. Never use Spanish. Never produce meaningless words. Answer 
       const cleaned = sentence.trim();
       const normalized = cleaned
         .toLocaleLowerCase()
-        .replace(/[.!?։՞՝՛,"'«»]/g, '')
+        .replace(/[.!?Ц‰ХћХќХ›,"'В«В»]/g, '')
         .replace(/\s+/g, ' ');
 
       if (!normalized || seen.has(normalized)) {
@@ -281,7 +280,7 @@ Never mix languages. Never use Spanish. Never produce meaningless words. Answer 
     if (!reply) {
       return res.status(502).json({
         success: false,
-        message: 'AI-ն պատասխան չստեղծեց։ Փորձիր կրկին։',
+        message: 'AI-Х¶ ХєХЎХїХЎХЅХ­ХЎХ¶ Х№ХЅХїХҐХІХ®ХҐЦЃЦ‰ Х“ХёЦЂХ±Х«ЦЂ ХЇЦЂХЇХ«Х¶Ц‰',
       });
     }
 
@@ -306,8 +305,8 @@ Never mix languages. Never use Spanish. Never produce meaningless words. Answer 
       success: false,
       message:
         error.name === 'TimeoutError'
-          ? 'AI-ի պատասխանը ուշանում է։ Փորձիր կրկին։'
-          : 'AI-ի հետ կապ չհաստատվեց։ Ստուգիր՝ Ollama-ն աշխատո՞ւմ է։',
+          ? 'AI-Х« ХєХЎХїХЎХЅХ­ХЎХ¶ХЁ ХёЦ‚Х·ХЎХ¶ХёЦ‚Хґ Х§Ц‰ Х“ХёЦЂХ±Х«ЦЂ ХЇЦЂХЇХ«Х¶Ц‰'
+          : 'AI-Х« Х°ХҐХї ХЇХЎХє Х№Х°ХЎХЅХїХЎХїХѕХҐЦЃЦ‰ ХЌХїХёЦ‚ХЈХ«ЦЂХќ Ollama-Х¶ ХЎХ·Х­ХЎХїХёХћЦ‚Хґ Х§Ц‰',
     });
   }
 });

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-const String serverUrl = 'http://localhost:3000';
+const String serverUrl = 'https://niko-ai-backend.onrender.com';
 
 void main() {
   runApp(const NikoAI());

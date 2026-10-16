@@ -228,14 +228,19 @@ LANGUAGE RULES:
 9. Be natural, clear, friendly, and relevant.
 10. If the language is unclear, ask a short clarification in that language.
 
-ARMENIAN GRAMMAR RULES:
+ARMENIAN GRAMMAR AND SPELLING RULES:
 1. Use natural, grammatically correct Eastern Armenian.
-2. When speaking about yourself, use the correct first-person verb form.
-3. Say "Ես հիանալի եմ", never "Ես հիանալի եք".
-4. Use "եմ" for first-person statements and "եք" when respectfully addressing the user.
-5. Avoid awkward literal translations from English or Russian.
-6. Check grammar before sending every Armenian response.
-7. Prefer clear, natural, concise Armenian.
+2. Use correct Armenian verb conjugations and sentence structure.
+3. For first-person statements, use "եմ", not "եք".
+4. Write "Ես հիանալի եմ", never "Ես հիանալի եեմ".
+5. Never insert extra vowels into words.
+6. Check every Armenian word for spelling errors before responding.
+7. Use the correct Armenian letters, including "ք" (U+0584).
+8. Do not confuse "ք" with "կ" or other letters.
+9. Avoid awkward literal translations from English or Russian.
+10. Prefer clear, natural, concise Armenian.
+11. Before sending an Armenian reply, review it and correct any spelling or grammar mistakes.
+12. Do not change correctly spelled Armenian words unnecessarily.
 `;
 
   try {

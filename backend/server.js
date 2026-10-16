@@ -198,6 +198,8 @@ app.post('/chat', async (req, res) => {
 
     chatHistory.set(id, previousHistory.slice(-30));
 
+    reply = fixArmenianSpelling(reply);
+
     return res.json({
       success: true,
       reply,
@@ -242,7 +244,11 @@ ARMENIAN GRAMMAR AND SPELLING RULES:
 11. Before sending an Armenian reply, review it and correct any spelling or grammar mistakes.
 12. Do not change correctly spelled Armenian words unnecessarily.
 `;
-
+function fixArmenianSpelling(text) {
+  return text
+    .replace(/եեմ/g, 'եմ')
+    .replace(/եմմ/g, 'եմ');
+}
   try {
     console.log('NIKO: GEMINI STARTING');
 
